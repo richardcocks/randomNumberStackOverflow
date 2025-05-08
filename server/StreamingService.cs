@@ -1,6 +1,5 @@
 ﻿namespace RandomNumberCore;
 
-
 [ServiceContract]
 public interface IStreamingService
 {

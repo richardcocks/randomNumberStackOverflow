@@ -21,6 +21,8 @@ namespace RandomNumberConsumerNet8
             using var randomStream = service.GetRandomStream();
             byte[] buffer = new byte[4];
             await randomStream.ReadExactlyAsync(buffer, cts.Token);
+            
+            Console.WriteLine($"Received bytes {buffer[0]} , {buffer[1]}, {buffer[2]}, {buffer[3]} ");
             service.Close();
             channelFactory.Close();
         }
