@@ -13,8 +13,4 @@
       <PackageReference Include="System.ServiceModel.NetTcp" Version="8.1.2" />
     </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\RandomNumberContract\RandomNumberContract.csproj" />
-    </ItemGroup>
-
 </Project>
