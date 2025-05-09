@@ -8,10 +8,15 @@ public interface IStreamingService
 }
     
 
-public class StreamingService : IStreamingService
+sealed class StreamingService: IStreamingService
 {
+    readonly IHttpContextAccessor context;
+    public StreamingService( IHttpContextAccessor context ) =>
+        this.context = context;
+
     public Stream GetRandomStream()
     {
-        return new RandomStream(Random.Shared);
+        CancellationToken token = context.HttpContext?.RequestAborted ?? CancellationToken.None;
+        return new RandomStream( Random.Shared, token );
     }
 }

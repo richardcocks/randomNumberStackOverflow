@@ -17,6 +17,8 @@ builder.WebHost.UseKestrel(options =>
         }
     });
 });
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped<StreamingService>();
 
 var app = builder.Build();
 
